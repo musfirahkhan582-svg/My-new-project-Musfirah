@@ -1,0 +1,46 @@
+# JobMatch AI: Automated Resume Tailor + Application Tracker
+
+Final project for the Building AI course
+
+## Summary
+
+JobMatch AI is a generative AI tool that tailors resumes and cover letters to each job posting, then tracks applications and predicts interview probability. Upload your base CV + job URL, and get a custom application kit in 30 seconds. Building AI course project
+
+## Problems it will solve
+
+* **Generic applications**: 75% of resumes never pass ATS filters because they're not keyword-optimized for specific roles
+* **Time waste**: Job seekers spend 2-3 hours per application manually rewriting bullets and cover letters
+* **No feedback loop**: Applicants don't know why they got rejected or which skills to improve
+* **Tracking chaos**: Managing 50+ applications in spreadsheets leads to missed follow-ups and duplicate applies
+
+## How is it used?
+
+1. **Upload**: User adds base resume PDF + LinkedIn profile link
+2. **Paste job URL**: AI scrapes the job description from LinkedIn, Indeed, or company sites
+3. **Generate**: System outputs: ATS-optimized resume, custom cover letter, and 3 interview questions to prep
+4. **Track**: Dashboard logs application date, status, and predicts callback % based on similarity score
+5. **Improve**: Weekly report suggests skills to add based on rejection patterns
+
+Example: Paste a Data Analyst job at Spotify → get a resume version highlighting SQL + Python, cover letter referencing Spotify's creator mission, and 82% match score.
+
+## Data sources and AI methods
+
+**Data sources:**
+- 200k public resumes from Kaggle + GitHub portfolio repos
+- 50k job descriptions scraped from LinkedIn Jobs API [LinkedIn API](https://developer.linkedin.com/)
+- ATS test data: 10k resumes run through Greenhouse, Lever, Workday parsers
+
+**AI methods:**
+- **GPT-4o + RAG**: Reads job description + your resume to rewrite bullets with STAR method and insert missing keywords
+- **Sentence-BERT embeddings**: Calculates semantic match score between resume and JD for interview probability
+- **Classification model**: Trained on historical application data to flag "high risk" sections that trigger ATS rejection
+- **T5 summarization**: Auto-generates 3-line cover letters tailored to company values
+
+## Challenges
+
+What does your project _not_ solve? Which limitations remain?
+
+* Cannot apply to jobs automatically — user must still submit to avoid ToS violations
+* Biased training data: Over-represents tech roles, weaker for healthcare/education
+* No guarantee of interviews — only increases probability, human hiring bias still exists
+* Privacy risk: Requires uploading
